@@ -72,16 +72,16 @@ const cart = [];
 const total = 0;
 
 // Exercise 1
-
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
-    for (let object = 0; object < products.length; object++) {
-        if (id == products[object].id) {
-            cartList.push(products[object]);
+    for (i = 0; i < products.length; i++) {
+        if (id == products[i].id) {
+            cartList.push(products[i]);
         }
     }
     console.log(cartList)
+    document.getElementById("count_product").innerText = cartList.length
 }
 
 // Exercise 2
@@ -90,16 +90,22 @@ function cleanCart() {
     console.log(cartList)
 }
 
-// Exercise 3
+// Exercise 3 (falta fer commit i que es vegi el resultat)
+
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
+    let total = 0;
+    for (let i = 0; i < cartList.length; i++) {
+      total += cartList[i].price;
+    }
+    console.log(total)  
+    document.getElementById("totalPriceCartList").innerText = total
 }
 
 // Exercise 4
-function generateCart() {
-    // Using the "cartlist" array that contains all the items in the shopping cart, 
-    // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-}
+// Using the "cartlist" array that contains all the items in the shopping cart, 
+// generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+
 
 // Exercise 5
 function applyPromotionsCart() {
