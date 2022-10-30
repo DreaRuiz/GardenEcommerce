@@ -81,22 +81,26 @@ function buy(id) {
 		}
 	}
 	document.getElementById('count_product').innerText = cartList.length;
-	calculateTotal(); // Exercici 3
 	generateCart(); // Exercici 4
+	applyPromotionsCart(); // Exercici 5
+    calculateTotal(); // Exercici 3
 }
 
 // Exercise 2
 function cleanCart() {
 	cartList.length = 0;
+    cart.length = 0;
+    calculateTotal()
 }
 
 function calculateTotal() {
 	// Calculate total price of the cart using the "cartList" array
 	let total = 0;
-	for (let i = 0; i < cartList.length; i++) {
-		total += cartList[i].price;
+	for (let i = 0; i < cart.length; i++) {
+		total += cart[i].subtotalWithDiscount * cart[i].quantity;
 	}
 	document.getElementById('totalPriceCartList').innerText = total;
+    console.log('total: ' + total)
 }
 
 // Exercise 4
@@ -124,6 +128,14 @@ function generateCart() {
 // Exercise 5
 function applyPromotionsCart() {
 	// Apply promotions to each item in the array "cart"
+	for (i = 0; i < cart.length; i++) {
+		if ('offer' in cart[i] && cart[i].quantity >= cart[i].offer.number) {
+			let discount = cart[i].price * (cart[i].offer.percent / 100);
+			cart[i].subtotalWithDiscount = cart[i].price - discount;
+		} else {
+			cart[i].subtotalWithDiscount = cart[i].price;
+		}
+	}
 }
 
 // Exercise 6
