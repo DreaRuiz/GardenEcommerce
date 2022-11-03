@@ -72,7 +72,7 @@ const cart = [];
 const total = 0;
 
 // Exercise 1
-function buy(id) {
+/* function buy(id) {
 	// 1. Loop for to the array products to get the item to add to cart
 	// 2. Add found product to the cartList array
 	for (i = 0; i < products.length; i++) {
@@ -84,13 +84,14 @@ function buy(id) {
 	generateCart(); // Exercici 4
 	applyPromotionsCart(); // Exercici 5
 	calculateTotal(); // Exercici 3
-}
+} */
 
 // Exercise 2
 function cleanCart() {
 	cartList.length = 0;
 	cart.length = 0;
 	calculateTotal();
+	printCart();
 }
 
 function calculateTotal() {
@@ -99,20 +100,20 @@ function calculateTotal() {
 	for (let i = 0; i < cart.length; i++) {
 		total += cart[i].subtotalWithDiscount * cart[i].quantity;
 	}
-	document.getElementById('totalPriceCartList').innerText = total;
+	document.getElementById('totalPriceCart').innerText = total;
 	console.log('total: ' + total);
 }
 
 // Exercise 4
 // Using the "cartlist" array that contains all the items in the shopping cart,
 // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-function generateCart() {
+/* function generateCart() {
 	cart.length = 0;
 	for (i = 0; i < cartList.length; i++) {
 		let found = false;
-
 		for (j = 0; j < cart.length; j++) {
 			if (cartList[i].id === cart[j].id) {
+				//
 				found = true;
 				cart[j].quantity += 1;
 			}
@@ -123,7 +124,7 @@ function generateCart() {
 			cart.push(item);
 		}
 	}
-}
+} */
 
 // Exercise 5
 function applyPromotionsCart() {
@@ -153,26 +154,70 @@ function printCart() {
 		let cell2 = row.insertCell(1);
 		let cell3 = row.insertCell(2);
 		let cell4 = row.insertCell(3);
+		let cell5 = row.insertCell(4);
+
 		cell1.innerHTML = cart[i].name;
 		cell2.innerHTML = cart[i].price + '€';
 		cell3.innerHTML = cart[i].quantity;
 		cell4.innerHTML = cart[i].subtotalWithDiscount * cart[i].quantity + '€';
+		cell5.innerHTML = '<button id="button-delete" src="images/delete" > x </button>';
+		document.getElementById('button-delete').onclick = 'removeFromCart()';
 	}
+
+	addToCart();
 }
 
 // ** Nivell II **
 
-// Exercise 7
+// Exercise 8
 function addToCart(id) {
 	// Refactor previous code in order to simplify it
 	// 1. Loop for to the array products to get the item to add to cart
 	// 2. Add found product to the cart array or update its quantity in case it has been added previously.
-}
 
-// Exercise 8
+	for (i = 0; i < products.length; i++) {
+		if (id === products[i].id) {
+			cartList.push(products[i]);
+
+			cart.length = 0;
+			for (i = 0; i < cartList.length; i++) {
+				let found = false;
+				for (j = 0; j < cart.length; j++) {
+					if (cartList[i].id === cart[j].id) {
+						found = true;
+						cart[j].quantity += 1;
+					}
+				}
+				if (found === false) {
+					let item = { ...cartList[i] };
+					item.quantity = 1;
+					cart.push(item);
+				}
+			}
+		}
+	}
+	document.getElementById('count_product').innerText = cart.length;
+	applyPromotionsCart();
+	calculateTotal();
+}
+/* if (id === products[i].id) {
+	for (j = 0; j < cart.length; j++) { 
+		if (products[i].id !== cart[j].id) {
+			let item = { ...cart[j] };
+			cart[j].quantity = 1;
+			cart.push(cart[j]);
+		}
+		if (products[i].id === cart[j].id) { 
+			cart[j].quantity += 1;
+		} */
+
+// Exercise 9
 function removeFromCart(id) {
 	// 1. Loop for to the array products to get the item to add to cart
 	// 2. Add found product to the cartList array
+
+	applyPromotionsCart(cart);
+	printCart();
 }
 
 function open_modal() {
