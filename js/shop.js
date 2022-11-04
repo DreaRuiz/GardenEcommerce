@@ -93,8 +93,8 @@ function cleanCart() {
 	calculateTotal();
 	printCart();
 }
-
-function calculateTotal() {
+// Exercise 3
+/* function calculateTotal() {
 	// Calculate total price of the cart using the "cartList" array
 	let total = 0;
 	for (let i = 0; i < cart.length; i++) {
@@ -102,6 +102,17 @@ function calculateTotal() {
 	}
 	document.getElementById('totalPriceCart').innerText = total;
 	console.log('total: ' + total);
+} */
+
+
+function calculateTotal() {
+    // Calculate total price of the cart using the "cartList" array
+    let total = 0;
+    for (let i = 0; i < cartList.length; i++) {
+      total += cartList[i].price;
+    }
+    console.log(total)  
+    document.getElementById("totalPriceCart").innerText = total
 }
 
 // Exercise 4
@@ -161,9 +172,8 @@ function printCart() {
 		cell3.innerHTML = cart[i].quantity;
 		cell4.innerHTML = cart[i].subtotalWithDiscount * cart[i].quantity + '€';
 		cell5.innerHTML = '<button id="button-delete" src="images/delete" > x </button>';
-		document.getElementById('button-delete').onclick = 'removeFromCart()';
+		/* 		document.getElementById('button-delete').onclick = 'removeFromCart()'; */
 	}
-
 	addToCart();
 }
 
@@ -196,20 +206,21 @@ function addToCart(id) {
 			}
 		}
 	}
-	document.getElementById('count_product').innerText = cart.length;
+        /* if (id === products[i].id) {
+            for (j = 0; j < cart.length; j++) { 
+                if (products[i].id !== cart[j].id) {
+                    let item = { ...cart[j] };
+                    cart[j].quantity = 1;
+                    cart.push(cart[j]);
+                }
+                if (products[i].id === cart[j].id) { 
+                    cart[j].quantity += 1;
+            } */
 	applyPromotionsCart();
 	calculateTotal();
+	document.getElementById('count_product').innerText = cartList.length;
 }
-/* if (id === products[i].id) {
-	for (j = 0; j < cart.length; j++) { 
-		if (products[i].id !== cart[j].id) {
-			let item = { ...cart[j] };
-			cart[j].quantity = 1;
-			cart.push(cart[j]);
-		}
-		if (products[i].id === cart[j].id) { 
-			cart[j].quantity += 1;
-		} */
+
 
 // Exercise 9
 function removeFromCart(id) {
