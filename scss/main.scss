@@ -1,0 +1,41 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+.body {
+	background-color: #def5e5;
+}
+.logo {
+	width: 300px;
+}
+.badge {
+	color: #3a8891;
+}
+.fas {
+	color: #3a8891;
+}
+.card {
+	border: none;
+}
+.text-header {
+	color: #3a8891;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.subtext-header {
+	color: #3a8891;
+}
+
+.button {
+	background-color: #8ec3b0;
+	border: none;
+}
+.btn {
+	background-color: #8ec3b0;
+	border: none;
+	color: white;
+}
+
+.footer {
+	background-color: #3a8891;
+}
+
+.form-checkout {
+	background-color: #def5e5;
+}

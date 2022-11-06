@@ -11,6 +11,7 @@
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="/scss/main.css">
 
 	<!-- Bootstrap icons-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -22,7 +23,9 @@
 	<!-- Navigation-->
 	<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="navbar-example2">
 		<div class="container d-flex">
-			<a class="navbar-brand" href="#!">ShopNow</a>
+			<a class="navbar-brand" href="#!">
+				<img class="logo col-1" src="images/logo.svg" alt="">
+			</a>
 			<div class="d-flex flex-row order-lg-last align-items-center">
 
 				<button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse"
@@ -45,13 +48,13 @@
 
 				<ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
 					<li class="nav-item">
-						<a class="nav-link" href="#grocery"><i class="fas fa-shopping-basket"></i> Grocery</a>
+						<a class="nav-link" href="#indoor"><i class="fas fa-leaf"></i> Indoor</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
+						<a class="nav-link" href="#outdoor"><i class="fas fa-tree"></i> Outdoor</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
+						<a class="nav-link" href="#cactus"><i class="fas fa-spa"></i> Cactus</a>
 					</li>
 
 				</ul>
@@ -59,27 +62,27 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h1 class="text-center head m-4">Checkout Page</h1>
+		<h1 class="text-header text-center head m-4">Checkout Page</h1>
 
 		<div class="row mr-0">
 			<div class="col-sm-6">
-				<h3 class="my-3 bord shadow text-center"><i class="fas fa-dollar-sign p-2"></i>Cash on Delivery</h3>
+				<h3 class="form-checkout subtext-header my-3 bord shadow text-center"><i class="fas fa-dollar-sign p-2"></i>Cash on Delivery</h3>
 			</div>
 			<div class="col-sm-6 ">
-				<h3 class="my-3 bord shadow text-center"><i class="fas fa-arrows-alt-h p-2"></i>100% Return</h3>
+				<h3 class="form-checkout subtext-header my-3 bord shadow text-center"><i class="fas fa-arrows-alt-h p-2"></i>100% Return</h3>
 			</div>
 		</div>
 
 		<div class="row mr-0">
 			<div class="col-sm-6">
-				<h3 class="my-3 bord shadow text-center"><i class="far fa-thumbs-up p-2"></i>Quality Assured</h3>
+				<h3 class="form-checkout subtext-header my-3 bord shadow text-center"><i class="far fa-thumbs-up p-2"></i>Quality Assured</h3>
 			</div>
 			<div class="col-sm-6 ">
-				<h3 class="my-3 bord shadow text-center"><i class="fas fa-stopwatch p-2"></i>Delivery on time</h3>
+				<h3 class="form-checkout subtext-header my-3 bord shadow text-center"><i class="fas fa-stopwatch p-2"></i>Delivery on time</h3>
 			</div>
 		</div>
 		<form class="form">
-			<div class="row bord p-5 shadow m-5">
+			<div class="form-checkout row bord p-5 shadow m-5">
 				<div class="col-sm-6">
 					<div class="mt-3">
 						<label for="fName" class="form-label">First Name:</label>
@@ -150,7 +153,7 @@
 					<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
+				<div class="body">
 					<div>
 						<ul class="list">
 

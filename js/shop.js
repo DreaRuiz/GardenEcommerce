@@ -2,9 +2,9 @@
 const products = [
 	{
 		id: 1,
-		name: 'cooking oil',
+		name: 'Pilea',
 		price: 10.5,
-		type: 'grocery',
+		type: 'indoor',
 		offer: {
 			number: 3,
 			percent: 20
@@ -12,15 +12,15 @@ const products = [
 	},
 	{
 		id: 2,
-		name: 'Pasta',
+		name: 'Monstera',
 		price: 6.25,
-		type: 'grocery'
+		type: 'indoor'
 	},
 	{
 		id: 3,
-		name: 'Instant cupcake mixture',
+		name: 'Potus Limón',
 		price: 5,
-		type: 'grocery',
+		type: 'indoor',
 		offer: {
 			number: 10,
 			percent: 30
@@ -28,39 +28,39 @@ const products = [
 	},
 	{
 		id: 4,
-		name: 'All-in-one',
+		name: 'ave-del-paraíso',
 		price: 260,
-		type: 'beauty'
+		type: 'outdoor'
 	},
 	{
 		id: 5,
-		name: 'Zero Make-up Kit',
+		name: 'Yuca',
 		price: 20.5,
-		type: 'beauty'
+		type: 'indoor'
 	},
 	{
 		id: 6,
-		name: 'Lip Tints',
+		name: 'Sansevieria',
 		price: 12.75,
-		type: 'beauty'
+		type: 'outdoor'
 	},
 	{
 		id: 7,
-		name: 'Lawn Dress',
+		name: 'Cardón',
 		price: 15,
-		type: 'clothes'
+		type: 'cactus'
 	},
 	{
 		id: 8,
-		name: 'Lawn-Chiffon Combo',
+		name: 'Euphorbia',
 		price: 19.99,
-		type: 'clothes'
+		type: 'cactus'
 	},
 	{
 		id: 9,
-		name: 'Toddler Frock',
+		name: 'TMammallaria',
 		price: 9.99,
-		type: 'clothes'
+		type: 'cactus'
 	}
 ];
 // Array with products (objects) added directly with push(). Products in this array are repeated.
@@ -72,7 +72,7 @@ const cart = [];
 const total = 0;
 
 // Exercise 1
-/* function buy(id) {
+function buy(id) {
 	// 1. Loop for to the array products to get the item to add to cart
 	// 2. Add found product to the cartList array
 	for (i = 0; i < products.length; i++) {
@@ -84,7 +84,7 @@ const total = 0;
 	generateCart(); // Exercici 4
 	applyPromotionsCart(); // Exercici 5
 	calculateTotal(); // Exercici 3
-} */
+}
 
 // Exercise 2
 function cleanCart() {
@@ -94,7 +94,7 @@ function cleanCart() {
 	printCart();
 }
 // Exercise 3
-/* function calculateTotal() {
+function calculateTotal() {
 	// Calculate total price of the cart using the "cartList" array
 	let total = 0;
 	for (let i = 0; i < cart.length; i++) {
@@ -102,23 +102,22 @@ function cleanCart() {
 	}
 	document.getElementById('totalPriceCart').innerText = total;
 	console.log('total: ' + total);
-} */
-
+}
 
 function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
-    let total = 0;
-    for (let i = 0; i < cartList.length; i++) {
-      total += cartList[i].price;
-    }
-    console.log(total)  
-    document.getElementById("totalPriceCart").innerText = total
+	// Calculate total price of the cart using the "cartList" array
+	let total = 0;
+	for (let i = 0; i < cartList.length; i++) {
+		total += cartList[i].price;
+	}
+	console.log(total);
+	document.getElementById('totalPriceCart').innerText = total;
 }
 
 // Exercise 4
 // Using the "cartlist" array that contains all the items in the shopping cart,
 // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-/* function generateCart() {
+function generateCart() {
 	cart.length = 0;
 	for (i = 0; i < cartList.length; i++) {
 		let found = false;
@@ -135,7 +134,7 @@ function calculateTotal() {
 			cart.push(item);
 		}
 	}
-} */
+}
 
 // Exercise 5
 function applyPromotionsCart() {
@@ -174,13 +173,12 @@ function printCart() {
 		cell5.innerHTML = '<button id="button-delete" src="images/delete" > x </button>';
 		/* 		document.getElementById('button-delete').onclick = 'removeFromCart()'; */
 	}
-	addToCart();
 }
 
 // ** Nivell II **
 
 // Exercise 8
-function addToCart(id) {
+/* function addToCart(id) {
 	// Refactor previous code in order to simplify it
 	// 1. Loop for to the array products to get the item to add to cart
 	// 2. Add found product to the cart array or update its quantity in case it has been added previously.
@@ -203,10 +201,11 @@ function addToCart(id) {
 					item.quantity = 1;
 					cart.push(item);
 				}
+				break
 			}
 		}
-	}
-        /* if (id === products[i].id) {
+	} */
+/* if (id === products[i].id) {
             for (j = 0; j < cart.length; j++) { 
                 if (products[i].id !== cart[j].id) {
                     let item = { ...cart[j] };
@@ -216,18 +215,29 @@ function addToCart(id) {
                 if (products[i].id === cart[j].id) { 
                     cart[j].quantity += 1;
             } */
-	applyPromotionsCart();
+/* 	applyPromotionsCart();
 	calculateTotal();
-	document.getElementById('count_product').innerText = cartList.length;
-}
-
+	document.getElementById('count_product').innerText = cart.length;
+} */
 
 // Exercise 9
 function removeFromCart(id) {
-	// 1. Loop for to the array products to get the item to add to cart
-	// 2. Add found product to the cartList array
-
-	applyPromotionsCart(cart);
+	for (i = 0; i < cart.length; i++) {
+		// TODO: recorrer l'array cart
+		if (id === cart[i].id) {
+			// TODO: si la id que ve per la funció és igual que la id d'un producte de l'array
+			if (cart[i].quantity > 1) {
+				// TODO: si el producte té una quantity major a 1
+				cart[i].quantity--; // TODO: resta-li 1 a la quantity (-1)
+				cart[i].subtotalWithDiscount -= cart[i].price; // TODO: i resta-li el preu (d'aquell producte (d'1)) al total del preu (subTotalWithDiscount)
+			} else {
+				// TODO: Si el producte no té quantity >1
+				cart.splice(cart[i], 1); // TODO: treu el producte de l'array
+			}
+		}
+	}
+	applyPromotionsCart();
+	calculateTotal();
 	printCart();
 }
 
