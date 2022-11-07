@@ -28,7 +28,7 @@ const products = [
 	},
 	{
 		id: 4,
-		name: 'ave-del-paraíso',
+		name: 'Ave-del-paraíso',
 		price: 260,
 		type: 'outdoor'
 	},
@@ -58,7 +58,7 @@ const products = [
 	},
 	{
 		id: 9,
-		name: 'TMammallaria',
+		name: 'Mammallaria',
 		price: 9.99,
 		type: 'cactus'
 	}
@@ -100,18 +100,17 @@ function calculateTotal() {
 	for (let i = 0; i < cart.length; i++) {
 		total += cart[i].subtotalWithDiscount * cart[i].quantity;
 	}
-	document.getElementById('totalPriceCart').innerText = total;
-	console.log('total: ' + total);
+	document.getElementById('totalPriceCart').innerText = total + '€';
 }
 
 function calculateTotal() {
 	// Calculate total price of the cart using the "cartList" array
 	let total = 0;
-	for (let i = 0; i < cartList.length; i++) {
-		total += cartList[i].price;
+	for (let i = 0; i < cart.length; i++) {
+		total += cart[i].price * cart[i].quantity;
 	}
 	console.log(total);
-	document.getElementById('totalPriceCart').innerText = total;
+	document.getElementById('totalPriceCart').innerText = total + '€';
 }
 
 // Exercise 4
@@ -170,8 +169,9 @@ function printCart() {
 		cell2.innerHTML = cart[i].price + '€';
 		cell3.innerHTML = cart[i].quantity;
 		cell4.innerHTML = cart[i].subtotalWithDiscount * cart[i].quantity + '€';
-		cell5.innerHTML = '<button id="button-delete" src="images/delete" > x </button>';
-		/* 		document.getElementById('button-delete').onclick = 'removeFromCart()'; */
+
+		cell5.innerHTML = `<button id="button-delete" onclick="removeFromCart(${cart[i]
+			.id})" class="button-delete fas fa-trash remove-product" style="border:none; background-color:white"> </button>`;
 	}
 }
 
@@ -223,22 +223,20 @@ function printCart() {
 // Exercise 9
 function removeFromCart(id) {
 	for (i = 0; i < cart.length; i++) {
-		// TODO: recorrer l'array cart
+		console.log(id, cart[i].id);
 		if (id === cart[i].id) {
-			// TODO: si la id que ve per la funció és igual que la id d'un producte de l'array
 			if (cart[i].quantity > 1) {
-				// TODO: si el producte té una quantity major a 1
-				cart[i].quantity--; // TODO: resta-li 1 a la quantity (-1)
-				cart[i].subtotalWithDiscount -= cart[i].price; // TODO: i resta-li el preu (d'aquell producte (d'1)) al total del preu (subTotalWithDiscount)
+				cart[i].quantity--;
+				cart[i].subtotalWithDiscount -= cart[i].price;
 			} else {
-				// TODO: Si el producte no té quantity >1
-				cart.splice(cart[i], 1); // TODO: treu el producte de l'array
+				cart.splice(i, 1);
 			}
 		}
 	}
 	applyPromotionsCart();
 	calculateTotal();
 	printCart();
+	document.getElementById('count_product').innerText = cart.length;
 }
 
 function open_modal() {
