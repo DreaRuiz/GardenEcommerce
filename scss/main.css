@@ -10936,7 +10936,7 @@ textarea.form-control-lg {
   }
 }
 .body {
-  background-color: #def5e5;
+  background-color: #f2fdf5;
 }
 
 .logo {
@@ -10981,4 +10981,8 @@ textarea.form-control-lg {
 
 .form-checkout {
   background-color: #def5e5;
+}
+
+.body-checkout {
+  color: dark;
 }/*# sourceMappingURL=main.css.map */

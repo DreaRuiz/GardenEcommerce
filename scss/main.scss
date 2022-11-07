@@ -1,6 +1,6 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 .body {
-	background-color: #def5e5;
+	background-color: #f2fdf5;
 }
 .logo {
 	width: 300px;
@@ -31,11 +31,18 @@
 	border: none;
 	color: white;
 }
-
+.button-delete{
+	background-color: white;
+}
 .footer {
 	background-color: #3a8891;
 }
 
 .form-checkout {
-	background-color: #def5e5;
+    background-color:#def5e5;
+
+}
+.body-checkout{
+    color: dark
+
 }
