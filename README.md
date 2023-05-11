@@ -70,6 +70,9 @@ You have the following indications from the frontend manager:
 - The logic to implement will be placed in the src/grocery.js and src/checkout.js files. You will see that the built in functions have already been created for you to implement them.
 
 - It is forbidden to copy the code, since this way you don't learn anything. Furthermore, as you can see, the second release of sprint 5 is a mini-level test with the mentor, in which you will have to demonstrate live that you have acquired the javascript concepts. Don't worry, if you work on the releases you won't have any problems.
+<br>
+
+
 
 ## Application result
 ![AddImage](https://github.com/DreaRuiz/GardenEcommerce/assets/108264052/e10ec532-4fb9-4e33-b261-869c0e8f94a7.png)
